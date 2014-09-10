@@ -1,4 +1,4 @@
-  h2 {{title}}
+h2 {{title}}
 .row
   .col-xs-4
      form(role='form', novalidate, name='conditionsForm')
@@ -9,4 +9,5 @@
   .col-xs-8
     #currentconditions
       h2#temp Current Tempearture: {{tempF}} F
-      h3#feelslike Feels Like: {{feelsLikeF}} F
+      h3#feelslike Feels Like: {{feelsLike}} F
+      a(href='{{historyUrl}}') Weather History

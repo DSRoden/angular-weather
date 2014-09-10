@@ -1,0 +1,18 @@
+h2 {{title}}
+.row
+  .col-xs-4
+     form(role='form', novalidate, name='forecastForm')
+       .form-group
+         label(for='zip') Zip
+         input.form-control#zip(ng-pattern='/^[0-9]{5}$/', required, ng-model='zip', type='text', name='zip', autofocus)
+       button.btn.btn-success(type='submit', ng-show='forecastForm.$valid', ng-click='getForecast()') GET WEATHER
+.row(ng-show='tenDays')
+  .col-xs-8
+    table.table.table-hover
+      thead
+        th Temperature (Fahrenheit)
+        th Temparture (Celsius)
+      tbody
+        tr(ng-repeat='day in tenDays')
+          td {{day.high.fahrenheit}}
+          td {{day.high.celsius}}

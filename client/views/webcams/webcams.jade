@@ -1,0 +1,12 @@
+h2 {{title}}
+.row
+  .col-xs-4
+     form(role='form', novalidate, name='webcamsForm')
+       .form-group
+         label(for='zip') Zip
+         input.form-control#zip(ng-pattern='/^[0-9]{5}$/', required, ng-model='zip', type='text', name='zip', autofocus)
+       button.btn.btn-success(type='submit', ng-show='webcamsForm.$valid', ng-click='getWebcams()') GET WEATHER
+.row(ng-show='webcams')
+  .col-xs-8
+    .webcams(ng-repeat='w in webcams')
+      img(ng-src='{{w.WIDGETCURRENTIMAGEURL}}')
